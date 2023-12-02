@@ -250,8 +250,8 @@ header li > a {
 
 .circle {
     position: absolute;
-    top: -15px;
-    left: 0;
+    top: -9px;
+    left: 5px;
     width: 38px;
     height: 38px;
     border-radius: var(--percent50);
