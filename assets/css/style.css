@@ -503,7 +503,6 @@ form.search button:hover {
     visibility: visible;
 }
 
-
 .off-canvas {
     width: var(--percent100);
     height: var(--percent100);
@@ -636,6 +635,7 @@ form.search button:hover {
 
     .logo a {
         margin-right: 2em;
+        text-shadow: 0 0 9px var(--white-color);
     }
 
     .header-nav {
