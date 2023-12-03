@@ -244,7 +244,7 @@ h4 {
 }
 
 /* Header */
-header li > a {
+:where(header, .off-canvas) li > a {
     display: flex;
     position: relative;
     line-height: inherit;
@@ -281,11 +281,11 @@ header li > a {
     display: block;
 }
 
-.header-top .right ul ul li a {
+:where(.header-top, .thetop-nav) .right ul ul li a {
     padding: 0.25em 1em;
 }
 
-.header-top .right ul ul li.current a {
+:where(.header-top, .thetop-nav) .right ul ul li.current a {
     background-color: var(--border-color);
 }
 
@@ -435,7 +435,7 @@ nav .fly-item {
     display: block;
 }
 
-.dpt-menu .has-child ul a:hover{
+.dpt-menu .has-child ul a:hover {
     text-decoration: underline;
 }
 
@@ -454,7 +454,8 @@ form.search input {
     width: var(--percent100);
     border-radius: 7px;
     font-size: 0.9em;
-    font-weight: var(--fw3);
+    font-weight: var(--fw4);
+    font-family: inherit;
 }
 
 form.search :where(span, button) {
@@ -469,6 +470,7 @@ form.search :where(span, button) {
 form.search button {
     right: 0;
     font-size: 0.875em;
+    font-family: inherit;
     font-weight: var(--fw6);
     background-color: var(--primary-color);
     color: var(--white-color);
@@ -479,6 +481,141 @@ form.search button {
 
 form.search button:hover {
     background-color: var(--dark-color);
+}
+
+/* Responsive Menu */
+.site-off {
+    position: fixed;
+    width: 320px;
+    height: var(--percent100);
+    background-color: var(--white-color);
+    overflow-y: auto;
+    z-index: 1000;
+
+    transform: translateX(-100%);
+    visibility: hidden;
+    transition: transform 0.4s, visibility 0.4s;
+    will-change: transform, visibility;
+}
+
+.show-menu .site-off {
+    transform: translateX(0);
+    visibility: visible;
+}
+
+
+.off-canvas {
+    width: var(--percent100);
+    height: var(--percent100);
+    touch-action: auto;
+    padding: 1.5em;
+}
+
+.off-canvas .canvas-head {
+    justify-content: space-between;
+    padding: 1.5em;
+    margin: -1.5em -1.5em 1.5em;
+    background-color: var(--secondary-dark-color);
+    color: var(--white-color);
+    text-shadow: 0 0 9px var(--secondary-dark-color);
+    border-bottom-right-radius: 160px 25px;
+}
+
+.off-canvas .canvas-head .logo {
+    z-index: 10;
+    position: relative;
+}
+
+.off-canvas .canvas-head .logo .circle {
+    opacity: 0.75;
+}
+
+.t-close {
+    font-size: 1.25em;
+    width: 32px;
+    height: 32px;
+    background-color: var(--secondary-dark-color);
+    border-radius: var(--percent50);
+    color: var(--white-color);
+    transition: var(--trans-background-color);
+}
+
+.t-close:hover {
+    background-color: var(--white-color);
+    color: var(--secondary-dark-color);
+    opacity: 0.85;
+}
+
+.off-canvas .dpt-head {
+    font-size: var(--font-small);
+    padding: 1em;
+    margin-bottom: 1em;
+    text-align: center;
+    background-color: var(--light-bg-color);
+    border-radius: 7px 7px 0 0;
+}
+
+.off-canvas .has-child > :where(ul, .mega) {
+    font-size: var(--font-small);
+    font-weight: var(--fw3);
+    line-height: 28px;
+    padding-left: 3em;
+    height: auto;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.off-canvas .expand > :where(ul, .mega) {
+    max-height: 2000px;
+}
+
+.off-canvas .thetop-nav ul,
+.off-canvas nav > ul {
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: var(--font-small);
+    line-height: 36px;
+    padding-top: 1.25em;
+    margin: 1.25em 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.off-canvas nav .mega {
+    padding: 0;
+}
+
+.off-canvas nav .mega .products {
+    display: none;
+}
+
+.off-canvas .has-child .icon-small {
+    padding: 0.5em;
+    line-height: initial;
+}
+
+.off-canvas .dpt-menu .icon-small i {
+    transform: rotate(90deg);
+}
+
+.off-canvas .has-child {
+    width: var(--percent100);
+}
+
+.off-canvas .thetop-nav .right > ul > :where(:nth-child(4), li:nth-child(5)) > a {
+    display: none;
+}
+
+.off-canvas .thetop-nav .right ul ul {
+    display: flex;
+    flex-direction: row;
+}
+
+.off-canvas .thetop-nav .right ul ul li a {
+    padding: 0.5em;
+    border: 1px solid var(--border-color);
+    line-height: 16px;
+    margin: 0 0.5em 1em 0;
 }
 
 /* Media Queries */
@@ -600,6 +737,7 @@ form.search button:hover {
         font-weight: var(--fw8);
         text-align: center;
         color: var(--secondary-dark-color);
+        text-shadow: 0 0 9px antiquewhite;
     }
 
     /* Main Header - Department */
@@ -661,7 +799,7 @@ form.search button:hover {
         content: "";
         position: absolute;
         inset: 0;
-        background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, .3) 100%);
+        background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.3) 100%);
     }
 
     .dpt-menu .beauty ul {
