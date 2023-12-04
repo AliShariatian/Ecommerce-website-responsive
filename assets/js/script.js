@@ -37,7 +37,7 @@ const closeMenuBtn = document.querySelector(".t-close");
 const site = document.querySelector(".site");
 
 openMenuBtn.addEventListener("click", () => {
-    site.classList.toggle("show-menu");
+    site.classList.add("show-menu");
 });
 
 closeMenuBtn.addEventListener("click", () => {
