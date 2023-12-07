@@ -348,17 +348,15 @@ h4 {
    font-size: var(--font-smaller);
    padding: 2px;
    text-align: center;
-   line-height: 10px;
+   line-height: 11px;
    color: var(--white-color);
 }
 
 nav .fly-item {
-   /* BUG: fix badge position */
-   top: 50%;
-   margin-top: -24px;
+   top: 10%;
+   right: -35px;
    width: 30px;
    border-radius: 3px;
-   right: -32px;
    background-color: var(--primary-color);
 }
 
@@ -492,13 +490,12 @@ form.search button:hover {
    background-color: var(--white-color);
    overflow-y: auto;
    z-index: 1000;
+   box-shadow: 5px 0 50px rgba(0, 0, 0, 0.2);
 
    transform: translateX(-100%);
    visibility: hidden;
    transition: transform 0.4s, visibility 0.4s;
    will-change: transform, visibility;
-
-   /* TODO: add box left shadow */
 }
 
 .show-menu .site-off {
@@ -702,6 +699,11 @@ form.search button:hover {
 
    .header-nav .right li > a {
       margin-left: 1em;
+   }
+
+   nav .fly-item {
+      top: 30%;
+      right: -30px;
    }
 
    /* Mega menu */
