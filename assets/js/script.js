@@ -43,3 +43,16 @@ openMenuBtn.addEventListener("click", () => {
 closeMenuBtn.addEventListener("click", () => {
    site.classList.remove("show-menu");
 });
+// ---------------------------------------------------------------
+
+// Swiper silder
+const swiper = new Swiper(".swiper", {
+   loop: true,
+   autoplay: {
+      delay: 5000,
+   },
+   speed: 400,
+   scrollbar: {
+      el: ".swiper-scrollbar",
+   },
+});

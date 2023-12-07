@@ -353,6 +353,7 @@ h4 {
 }
 
 nav .fly-item {
+   /* BUG: fix badge position */
    top: 50%;
    margin-top: -24px;
    width: 30px;
@@ -496,6 +497,8 @@ form.search button:hover {
    visibility: hidden;
    transition: transform 0.4s, visibility 0.4s;
    will-change: transform, visibility;
+
+   /* TODO: add box left shadow */
 }
 
 .show-menu .site-off {
@@ -617,16 +620,24 @@ form.search button:hover {
    margin: 0 0.5em 1em 0;
 }
 
-/* Slider */
-
-.slider > div > .wrapper {
-   width: calc(100% - (300px + 2em));
-   margin-left: auto;
-}
+/* main Slider */
 
 .slider .item {
    position: relative;
    height: 474px;
+}
+
+.slider .item::before {
+   content: "";
+   position: absolute;
+   top: 30%;
+   left: 2%;
+   width: 550px;
+   height: 300px;
+   background-color: var(--white-color);
+   z-index: 1;
+   filter: blur(50px);
+   opacity: 0.8;
 }
 
 .slider .text-content {
@@ -639,7 +650,7 @@ form.search button:hover {
 
 .slider h4 {
    font-size: var(--font-small);
-   font-weight: var(--fw7);
+   font-weight: var(--fw6);
    width: fit-content;
    padding: 4px 10px;
    background-color: var(--dark-color);
@@ -647,15 +658,19 @@ form.search button:hover {
    border-radius: 4px;
 }
 
-.text-content :where(h2, h3) span:first-child {
+.text-content h2 span:first-child {
    font-weight: var(--fw3);
    color: var(--light-text-color);
 }
 
-.text-content :where(h2, h3) span:last-child {
+.text-content h2 span:last-child {
    color: var(--secondary-dark-color);
    text-transform: uppercase;
    letter-spacing: -1px;
+}
+
+.slider :where(h2, h4) {
+   cursor: default;
 }
 
 /* Media Queries */
@@ -854,5 +869,11 @@ form.search button:hover {
    }
    .dpt-menu .homekit .mega {
       background-image: url("../img/menu/menu_bg4.jpg");
+   }
+
+   /* Slider */
+   .slider > div > .wrapper {
+      width: calc(100% - (300px + 2em));
+      margin-left: auto;
    }
 }
