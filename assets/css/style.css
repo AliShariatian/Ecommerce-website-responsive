@@ -670,8 +670,24 @@ form.search button:hover {
    cursor: default;
 }
 
-/* Media Queries */
+/* Brands */
+.brands .wrapper {
+   justify-content: space-around;
+   flex-wrap: wrap;
+   padding: 2em 0;
+}
 
+.brands .item img {
+   margin-inline: 0.5em;
+   opacity: 0.25;
+   transition: opacity 0.3s;
+}
+
+.brands .item a:hover img {
+   opacity: 1;
+}
+
+/* Media Queries */
 /* Big devices */
 @media only screen and (min-width: 992px) {
    .container {
